@@ -1,7 +1,6 @@
+FROM picoded/ubuntu-openjdk-8-jdk
 MAINTAINER Ishmael Ahmed <ishmael.ahmed@readindplus.com>
 
-
-FROM picoded/ubuntu-openjdk-8-jdk
 ENV MOUNT /opt/code
 ENV HUB localhost
 
