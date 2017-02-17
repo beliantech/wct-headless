@@ -9,10 +9,10 @@ Running:
 
 1. First build the docker container
 ```shell
-git clone https://github.com/ReadingPlus/wct-ci-docker-firefox-chrome.git
-docker build  ./ --tag readingplus/docker-standalone-wct # hub to come
+git clone https://github.com/ReadingPlus/docker-wct-headless.git
+docker build  ./ --tag readingplus/docker-wct-headless # hub to come
 ```
 2. The following commands assume a component directory with tests in sub-directory of `test/`
 ```shell
-docker run -v `pwd`/:/opt/code --security-opt seccomp:unconfined  readingplus/ci-polymer-tester
+docker run -v `pwd`/:/opt/code --security-opt seccomp:unconfined  readingplus/docker-wct-headless
 ```
