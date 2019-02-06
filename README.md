@@ -1,18 +1,16 @@
-wct-ci-docker-firefox-chrome
+wct-headless
 ===================================
 
-A Dockerfile runs test in your component folder. 
-It starts a `xvfb` server. Ruins a `bower install` then `wct test`. 
-It returns an xml result called `test-results.xml` suiteble for jUnit parsing.
+An image that runs wct tests in your component folder and in your CI.
 
-Running:
+## Running:
 
-1. First build the docker container
+1. First build the docker container:
 ```shell
-git clone https://github.com/ReadingPlus/docker-wct-headless.git
-docker build  ./ --tag readingplus/docker-wct-headless # hub to come
+git clone git@github.com:beliantech/wct-headless.git
+docker build -t wct-headless .
 ```
-2. The following commands assume a component directory with tests in sub-directory of `test/`
+2. The following commands assume a component directory with tests in sub-directory, e.g. `test/`:
 ```shell
-docker run -v `pwd`/:/opt/code --security-opt seccomp:unconfined  readingplus/docker-wct-headless
+docker run --rm -it -v `pwd`/:/opt/code --entrypoint 'npm' wct-headless run test
 ```
